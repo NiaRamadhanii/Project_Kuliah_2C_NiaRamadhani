@@ -38,7 +38,7 @@ $hasil = mysqli_fetch_assoc($query);
       <!--End contect-->
     </div>
     <div class="fixed-bottom text-center mb-2">
-      Copyright 2023 Nia Ramadhani
+      Copyright 2023 Markaz Virtual
     </div>
   </div>
 
