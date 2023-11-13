@@ -26,7 +26,7 @@ $hasil = mysqli_fetch_assoc($query);
   <?php include "header.php"; ?>
   <!-- end Header -->
   <div class="container-lg">
-    <div class="row">
+    <div class="row mb-5">
       <!-- sidebar -->
       <?php include "sidebar.php"; ?>
       <!-- /end sidebar -->
@@ -37,7 +37,7 @@ $hasil = mysqli_fetch_assoc($query);
 
       <!--End contect-->
     </div>
-    <div class="fixed-bottom text-center mb-2">
+    <div class="fixed-bottom text-center bg-light py-2">
       Copyright 2023 Markaz Virtual
     </div>
   </div>

@@ -19,6 +19,9 @@
                     <a class="nav-link ps-2 <?php echo(isset($_GET['x']) && $_GET['x']=='menu') ? 'active link-light' : 'nav-link link-dark'; ?>" href="menu"><i class="bi bi-cart4"></i> Daftar menu </a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link ps-2 <?php echo(isset($_GET['x']) && $_GET['x']=='katmenu') ? 'active link-light' : 'nav-link link-dark'; ?>" href="katmenu"><i class="bi bi-tags"></i> Kategori menu </a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link ps-2 <?php echo(isset($_GET['x']) && $_GET['x']=='order') ? 'active link-light' : 'nav-link link-dark'; ?>" href="order"><i class="bi bi-cart4"></i> Order</a>
                   </li>
                   <li class="nav-item">

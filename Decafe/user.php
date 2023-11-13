@@ -95,10 +95,7 @@ while ($record = mysqli_fetch_array($query)) {
             <!-- Akhir Modal Tambah User Baru-->
 
             <!-- Modal View -->
-            <?php
-            foreach ($result as $row) {
-            ?>
-                <div class="modal fade" id="ModalView<?php echo $row['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="ModalView<?php echo $row['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-xl modal-fullscreen-md-down">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -170,10 +167,6 @@ while ($record = mysqli_fetch_array($query)) {
                 <!-- End Modal View-->
 
                 <!-- Modal Edit -->
-            <?php
-            }
-            foreach ($result as $row) {
-            ?>
                 <div class="modal fade" id="ModalEdit<?php echo $row['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-xl modal-fullscreen-md-down">
                         <div class="modal-content">
@@ -283,11 +276,7 @@ while ($record = mysqli_fetch_array($query)) {
                 </div>
                 <!-- End Modal Delete-->
 
-            <!-- Modal Reset Password-->
-            <?php
-            }
-            foreach ($result as $row) {
-            ?>
+                <!-- Modal Reset Password-->
                 <div class="modal fade" id="ModalResetPassword<?php echo $row['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-xl modal-fullscreen-md-down">
                         <div class="modal-content">
@@ -317,7 +306,7 @@ while ($record = mysqli_fetch_array($query)) {
                         </div>
                     </div>
                 </div>
-                <!-- End Modal Delete-->
+                <!-- End Modal reset Password-->
             <?php
             }
             if (empty($result)) {

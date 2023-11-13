@@ -13,12 +13,15 @@ if (!empty($_POST['input_user_validate'])) {
         $message = '<script>alert("Username yang dimasukkan telah ada");
                     window.location="../user"</script>
                     </script>';
-    }else{
-    $query = mysqli_query($conn, "INSERT INTO tb_user (nama, username, level, nohp, alamat, password) VALUES ('$name',' $username', '$level', '$nohp', '$alamat', '$password')");
-    if (!$query) {
-        $message = '<script>alert("Data gagal dimasukkan")</script>';
-    } 
-}
+    } else {
+        $query = mysqli_query($conn, "INSERT INTO tb_user (nama, username, level, nohp, alamat, password) VALUES ('$name',' $username', '$level', '$nohp', '$alamat', '$password')");
+        if ($query) {
+            $message = '<script>alert("Data berhasil dimasukkan")
+                    windows.location="../user"</script>';
+        } else {
+            $message = '<script>alert("Data Gagal Dimasukkan")</script>';
+        }
+    }
 }
 echo $message;
 ?>
