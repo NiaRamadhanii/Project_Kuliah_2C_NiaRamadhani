@@ -9,13 +9,13 @@ if (!empty($_POST['input_katmenu_validate'])) {
         $message = '<script>alert("Kategori yang dimasukkan telah ada");
                     window.location="../user"</script>';
     } else {
-        $query = mysqli_query($conn, "INSERT INTO tb_kategori_menu (jenis_menu, kategori_menu) values ('$jenis_menu','$kategori_menu')");
+        $query = mysqli_query($conn, "INSERT INTO tb_kategori_menu (jenis_menu, kategori_menu) values ('$jenismenu','$katmenu')");
         if ($query) {
             $message = '<script>alert("Data berhasil dimasukkan")
-                    windows.location="../katmenu"</script>';
+                    window.location="../katmenu"</script>';
         } else {
             $message = '<script>alert("Data Gagal Dimasukkan")
-                        windows.location="../katmenu"</script>';
+                        window.location="../katmenu"</script>';
         }
     }
 }

@@ -345,7 +345,7 @@ $select_kat_menu = mysqli_query($conn, "SELECT id_kat_menu,kategori_menu FROM tb
                                     <td><?php echo $row['keterangan'] ?></td>
                                     <td><?php echo ($row['jenis_menu'] == 1) ? "Makanan" : "Minuman" ?></td>
                                     <td><?php echo $row['kategori_menu'] ?></td>
-                                    <td><?php echo $row['harga'] ?></td>
+                                    <td><?php echo number_format ($row['harga']) ?></td>
                                     <td><?php echo $row['stok'] ?></td>
                                     <td>
                                         <div class="d-flex">

@@ -94,6 +94,10 @@ while ($record = mysqli_fetch_array($query)) {
             </div>
             <!-- Akhir Modal Tambah User Baru-->
 
+            <?php
+            foreach ($result as $row) {
+            ?>
+
             <!-- Modal View -->
             <div class="modal fade" id="ModalView<?php echo $row['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-xl modal-fullscreen-md-down">
@@ -241,10 +245,7 @@ while ($record = mysqli_fetch_array($query)) {
                 <!-- End Modal Edit-->
 
                 <!-- Modal Delete -->
-            <?php
-            }
-            foreach ($result as $row) {
-            ?>
+            
                 <div class="modal fade" id="ModalDelete<?php echo $row['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-xl modal-fullscreen-md-down">
                         <div class="modal-content">
