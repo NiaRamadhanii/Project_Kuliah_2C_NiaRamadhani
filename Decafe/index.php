@@ -6,8 +6,8 @@ if (isset($_GET['x']) && $_GET['x'] == 'home') {
 } elseif (isset($_GET['x']) && $_GET['x'] == 'order') {
   $page = 'order.php';
   include "main.php";
-} elseif (isset($_GET['x']) && $_GET['x'] == 'customer') {
-  $page = 'customer.php';
+} elseif (isset($_GET['x']) && $_GET['x'] == 'dapur') {
+  $page = 'dapur.php';
   include "main.php";
 } elseif (isset($_GET['x']) && $_GET['x'] == 'user') {
   if ($_SESSION["level_decafe"] == 1) {
