@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (empty($_SESSION["username_mytaylor"])){
+  header('location:../login');
+}
+// include "proses/connect.php";
+// $query = mysqli_query($conn, "SELECT * FROM tb_user WHERE username = '$_SESSION[username_mytaylor]'");
+// $hasil = mysqli_fetch_assoc($query);
+?>
+
 <!doctype html>
 <html lang="en">
 
