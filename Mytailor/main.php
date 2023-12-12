@@ -1,11 +1,12 @@
 <?php
-session_start();
+//session_start();
 if (empty($_SESSION["username_mytaylor"])){
-  header('location:../login');
+  header("location:login");
 }
-// include "proses/connect.php";
-// $query = mysqli_query($conn, "SELECT * FROM tb_user WHERE username = '$_SESSION[username_mytaylor]'");
-// $hasil = mysqli_fetch_assoc($query);
+ include "proses/connect.php";
+ $query = mysqli_query($conn, "SELECT * FROM tb_user WHERE username = '$_SESSION[username_mytaylor]'");
+ $hasil = mysqli_fetch_array($query);
+
 ?>
 
 <!doctype html>
@@ -32,8 +33,8 @@ if (empty($_SESSION["username_mytaylor"])){
 
       <!-- Content -->
       <?php
-        include "home.php"
-        ?>
+      include $page;
+      ?>
       <!-- End Content -->
       <div class="fixed-bottom text-center bg-light py-2">
         Copyright 2023 Nia Ramadhani

@@ -30,11 +30,11 @@ $hasil = mysqli_fetch_assoc($query);
       <!-- sidebar -->
       <?php include "sidebar.php"; ?>
       <!-- /end sidebar -->
+     
+      <!-- Content -->
       <?php
       include $page;
       ?>
-      <!-- Content -->
-
       <!--End contect-->
     </div>
     <div class="fixed-bottom text-center bg-light py-2">
