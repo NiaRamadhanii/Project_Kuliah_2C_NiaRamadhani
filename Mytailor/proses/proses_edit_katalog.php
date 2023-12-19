@@ -1,10 +1,10 @@
 <?php
 include "connect.php";
-$nama_menu = (isset($_POST['nama_menu'])) ? htmlentities($_POST['nama_menu']) : " ";
+$id = (isset($_POST['id'])) ? htmlentities($_POST['id']) : " ";
+$nama_desain = (isset($_POST['nama_desain'])) ? htmlentities($_POST['nama_desain']) : " ";
 $keterangan = (isset($_POST['keterangan'])) ? htmlentities($_POST['keterangan']) : " ";
-$kat_menu = (isset($_POST['kat_menu'])) ? htmlentities($_POST['kat_menu']) : " ";
-$harga = (isset($_POST['harga'])) ? htmlentities($_POST['harga']) : " ";
-$stok = (isset($_POST['stok'])) ? htmlentities($_POST['stok']) : " ";
+$kategori_katalog = (isset($_POST['kategori'])) ? htmlentities($_POST['kategori']) : " ";
+
 
 $kode_rand = rand(10000, 99999) . "-";
 $target_dir = "../assets/img/" . $kode_rand;
@@ -12,7 +12,7 @@ $target_file = $target_dir . basename($_FILES['foto']['name']);
 $imageType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
 
-if (!empty($_POST['input_menu_validate'])) {
+if (!empty($_POST['edit_katalog_validate'])) {
     // Cek apakah gambar atau bukan
     $cek = getimagesize($_FILES['foto']['tmp_name']);
     if ($cek === false) {
@@ -38,25 +38,25 @@ if (!empty($_POST['input_menu_validate'])) {
 
     if ($statusUpload == 0) {
         $message = '<script>alert("' . $message . ', Gambar tidak dapat diupload")
-        window.location="../menu"</script>';
+        window.location="../katalog"</script>';
     } else {
-        $select = mysqli_query($conn, "SELECT * FROM tb_daftar_menu WHERE nama_menu = '$nama_menu'");
+        $select = mysqli_query($conn, "SELECT * FROM tb_katalog WHERE nama_desain = '$nama_desain'");
         if (mysqli_num_rows($select) > 0) {
-            $message = '<script>alert("Nama Menu yang dimasukkan telah ada ")
-            window.location="../menu"</script>';
+            $message = '<script>alert("Nama Desain yang dimasukkan telah ada ")
+            window.location="../katalog"</script>';
         } else {
             if (move_uploaded_file($_FILES['foto']['tmp_name'], $target_file)) {
-                $query = mysqli_query($conn, "INSERT INTO tb_daftar_menu (foto, nama_menu, keterangan, kategori, harga, stok) VALUES ('" . $kode_rand . $_FILES['foto']['name'] . "','$nama_menu', '$keterangan', '$kat_menu', '$harga', '$stok')");
+                $query = mysqli_query($conn, "UPDATE tb_katalog SET foto='" . $kode_rand . $_FILES['foto']['name'] . "', nama_desain ='$nama_desain',keterangan='$keterangan', kategori='$kategori_katalog' WHERE id='$id'");
                 if ($query) {
                     $message = '<script>alert("Data Berhasil Dimasukkan")
-            window.location="../menu"</script>';
+            window.location="../katalog"</script>';
                 } else {
                     $message = '<script>alert("Data Gagal Dimasukkan")
-            window.location="../menu"</script>';
+            window.location="../katalog"</script>';
                 }
             } else {
                 $message = '<script>alert("Maaf, terjadi kesalahan file tidak dapat diupload")
-            window.location="../menu"</script>';
+            window.location="../katalog"</script>';
             }
         }
     }

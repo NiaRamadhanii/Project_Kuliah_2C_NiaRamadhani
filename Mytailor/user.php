@@ -341,11 +341,11 @@
                                         if ($row['level'] == 1) {
                                             echo "Admin";
                                         } elseif ($row['level'] == 2) {
-                                            echo "Kasir";
+                                            echo "Penjahit";
                                         } elseif ($row['level'] == 3) {
-                                            echo "Pelayan";
+                                            echo "Pelanggan";
                                         } elseif ($row['level'] == 4) {
-                                            echo "Dapur";
+                                            echo "Owner";
                                         }
                                         ?></td>
                                     <td><?php echo $row['nohp'] ?></td>

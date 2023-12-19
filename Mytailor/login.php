@@ -61,11 +61,10 @@ if (!empty($_SESSION["username_mytaylor"])){
                 <label class="form-check-label" for="flexCheckDefault">
                     Remember me
                 </label>
-                <label>admin@gmail.com 
-                    password</label>
             </div>
             <button class="btn btn-primary w-100 py-2" type="submit" name="submit_validate" value="abc">Login</button>
-            <p class="mt-5 mb-3 text-body-secondary">&copy; 2023</p>
+            <p class="mt-5 mb-3 text-body-secondary">&copy; 2023 </p> <label>admin@gmail.com 
+                    password</label>
         </form>
     </main>
 

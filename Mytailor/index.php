@@ -1,3 +1,7 @@
+<style>.nav-link.active {
+background-color: #F4A460 !important;
+color: white !important;
+}</style>
 <?php
 session_start();
 if (isset($_GET['x']) && $_GET['x'] == 'home') {
@@ -32,6 +36,9 @@ if (isset($_GET['x']) && $_GET['x'] == 'home') {
   include "login.php";
 } elseif (isset($_GET['x']) && $_GET['x'] == 'logout') {
   include "proses/proses_logout.php";
+} elseif (isset($_GET['x']) && $_GET['x'] == 'katdesain') {
+  $page = "katdesain.php";
+  include "main.php";
 } else {
   $page = "home.php";
   include "main.php";
