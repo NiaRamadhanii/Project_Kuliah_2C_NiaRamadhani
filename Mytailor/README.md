@@ -28,21 +28,18 @@
 
 ## Admin:
     laporan
-    pelanggan
     pesanan
     user
     katalaog
+    jahit
 
 ## Penjahit:
-    pelanggan
-    pesanan
-    katalog
+    jahit
 
 ## Pelanggan:
     Login.
-    Melihat katalog desain/pola.
-    Mengikuti status pesanan.
-    Melihat riwayat pesanan.
+    katalog desain.
+    Pesanan.
 
 ## Owner:
     laporan

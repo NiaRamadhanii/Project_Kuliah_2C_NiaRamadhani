@@ -8,6 +8,7 @@ $desain = (isset($_POST['desain'])) ? htmlentities($_POST['desain']) : "";
 $ukuran = (isset($_POST['ukuran'])) ? htmlentities($_POST['ukuran']) : "";
 $jumlah = (isset($_POST['jumlah'])) ? htmlentities($_POST['jumlah']) : "";
 
+
 if (!empty($_POST['input_orderitem_validate'])) {
     $select = mysqli_query($conn, "SELECT * FROM tb_list_order WHERE desain = '$desain' && kode_order='$kode_order'");
     if (mysqli_num_rows($select) > 0) {

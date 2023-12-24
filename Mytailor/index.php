@@ -1,7 +1,9 @@
-<style>.nav-link.active {
-background-color: #F4A460 !important;
-color: white !important;
-}</style>
+<style>
+  .nav-link.active {
+    background-color: #F4A460 !important;
+    color: white !important;
+  }
+</style>
 <?php
 session_start();
 if (isset($_GET['x']) && $_GET['x'] == 'home') {
@@ -14,21 +16,21 @@ if (isset($_GET['x']) && $_GET['x'] == 'home') {
   $page = "pesanan.php";
   include "main.php";
 } elseif (isset($_GET['x']) && $_GET['x'] == 'user') {
-  //if ($_SESSION['level_mytaylor'] == 1) {
-  //   $page = "laporan.php";
-  //   include "main.php";
-  // } else {
-  $page = "user.php";
-  include "main.php";
-  
+  if ($_SESSION['level_mytaylor'] == 1) {
+    $page = "user.php";
+    include "main.php";
+  } else {
+    $page = "home.php";
+    include "main.php";
+  }
 } elseif (isset($_GET['x']) && $_GET['x'] == 'laporan') {
-  // if ($_SESSION['level_mytaylor'] == 1) {
-  //   $page = "laporan.php";
-  //   include "main.php";
-  // } else {
+  if ($_SESSION['level_mytaylor'] == 1) {
     $page = "laporan.php";
     include "main.php";
-//  }
+  } else {
+    $page = "home.php";
+    include "main.php";
+  }
 } elseif (isset($_GET['x']) && $_GET['x'] == 'login') {
   include "login.php";
 } elseif (isset($_GET['x']) && $_GET['x'] == 'logout') {
@@ -39,8 +41,21 @@ if (isset($_GET['x']) && $_GET['x'] == 'home') {
 } elseif (isset($_GET['x']) && $_GET['x'] == 'orderitem') {
   $page = "order_item.php";
   include "main.php";
-} else {
-  $page = "home.php";
-  include "main.php";
+} elseif (isset($_GET['x']) && $_GET['x'] == 'viewitem') {
+  if ($_SESSION['level_mytaylor'] == 1) {
+    $page = "view_item.php";
+    include "main.php";
+  } else {
+    $page = "home.php";
+    include "main.php";
+  }
+} elseif (isset($_GET['x']) && $_GET['x'] == 'jahit') {
+  if ($_SESSION['level_mytaylor'] == 1 || $_SESSION['level_mytaylor'] == 2) {
+    $page = "jahit.php";
+    include "main.php";
+  } else {
+    $page = "home.php";
+    include "main.php";
+  }
 }
 ?>

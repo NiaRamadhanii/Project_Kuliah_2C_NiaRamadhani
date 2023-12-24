@@ -1,3 +1,9 @@
+<style>
+  .nav-link.active {
+    background-color: #F4A460 !important;
+    color: white !important;
+  }
+</style>
 <?php
 include "proses/connect.php";
 $query = mysqli_query($conn, "SELECT * FROM tb_user WHERE username ='$_SESSION[username_mytaylor]'");
@@ -7,7 +13,7 @@ $records = mysqli_fetch_array($query);
 ?>
 <nav class="navbar navbar-expand navbar bg-warning sticky-top">
   <div class="container-lg">
-    <a class="navbar-brand" href="."><i class="bi bi-scissors"></i> My Taylor</a>
+    <a class="navbar-brand" href="."><i class="bi bi-scissors"></i> My Taylor </a>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
@@ -83,7 +89,7 @@ $records = mysqli_fetch_array($query);
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary" name="ubah_password_validate" value="12345">Save
+            <button type="submit" class="btn btn-warning" name="ubah_password_validate" value="12345">Save
               changes</button>
           </div>
       </div>
@@ -91,7 +97,7 @@ $records = mysqli_fetch_array($query);
     </div>
   </div>
 </div>
-<!-- Akhir Modal ubah password-->
+<!-- Akhir Modal ubah Profile-->
 
 <!-- modal ubah profile -->
 <div class="modal fade" id="ModalUbahProfile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -151,7 +157,7 @@ $records = mysqli_fetch_array($query);
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary" name="ubah_profile_validate" value="12345">Save
+            <button type="submit" class="btn btn-warning" name="ubah_profile_validate" value="12345">Save
               changes</button>
           </div>
       </div>

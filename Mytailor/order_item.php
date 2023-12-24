@@ -1,7 +1,7 @@
 <?php
 include "proses/connect.php";
 
-$query = mysqli_query($conn, "SELECT *, SUM(harga*jumlah) AS harganya FROM tb_list_order
+$query = mysqli_query($conn, "SELECT *, SUM(harga*jumlah) AS harganya, tb_pesanan.waktu_order FROM tb_list_order
 LEFT JOIN tb_pesanan ON tb_pesanan.id_order=tb_list_order.kode_order
 LEFT JOIN tb_katalog ON tb_katalog.id = tb_list_order.desain
 LEFT JOIN tb_bayar ON tb_bayar.id_bayar = tb_pesanan.id_order
@@ -28,7 +28,7 @@ $select_desain = mysqli_query($conn, "SELECT id, nama_desain FROM tb_katalog");
       Halaman Order Item
     </div>
     <div class="card-body">
-      <a href="order" class="btn btn-info mb-3"><i class="bi bi-arrow-left"></i></a>
+      <a href="pesanan" class="btn btn-warning mb-3"><i class="bi bi-arrow-left"></i></a>
       <div class="row">
         <div class="col-lg-6">
           <div class="form-floating mb-3">
@@ -76,8 +76,8 @@ $select_desain = mysqli_query($conn, "SELECT id, nama_desain FROM tb_katalog");
                   </div>
                   <div class="col-lg-6">
                     <div class="form-floating mb-3">
-                      <input type="text" class="form-control" id="floatingInput" placeholder="ukuran"
-                        name="ukuran" required>
+                      <input type="text" class="form-control" id="floatingInput" placeholder="ukuran" name="ukuran"
+                        required>
                       <label for="floatingInput">Ukuran</label>
                       <div class="invalid-feedback">
                         Masukkan Ukuran.
@@ -166,8 +166,8 @@ $select_desain = mysqli_query($conn, "SELECT id, nama_desain FROM tb_katalog");
                       </div>
                       <div class="col-lg-4">
                         <div class="form-floating mb-3">
-                          <input type="text" class="form-control" id="floatingInput" placeholder="Ukuran"
-                            name="ukuran" required value="<?php echo $row['jumlah'] ?>">
+                          <input type="text" class="form-control" id="floatingInput" placeholder="Ukuran" name="ukuran"
+                            required value="<?php echo $row['jumlah'] ?>">
                           <label for="floatingInput">Ukuran</label>
                           <div class="invalid-feedback">
                             Masukkan Ukuran.
@@ -284,7 +284,13 @@ $select_desain = mysqli_query($conn, "SELECT id, nama_desain FROM tb_katalog");
 
                           </td>
                           <td>
-                            <?php echo $row['status'] ?>
+                            <?php
+                            if ($row['status'] == 1) {
+                              echo "<span class='badge text-bg-info'>Masuk ke Jahit</span>";
+                            } elseif ($row['status'] == 2) {
+                              echo "<span class='badge text-bg-warning'>Selesai</span>";
+                            }
+                            ?>
 
                           </td>
                           <td>
@@ -335,7 +341,7 @@ $select_desain = mysqli_query($conn, "SELECT id, nama_desain FROM tb_katalog");
 
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" name="bayar_validate" value="12345">Bayar</button>
+                <button type="submit" class="btn btn-warning" name="bayar_validate" value="12345">Bayar</button>
               </div>
               </form>
             </div>
@@ -379,12 +385,11 @@ $select_desain = mysqli_query($conn, "SELECT id, nama_desain FROM tb_katalog");
                   <td>
                     <?php
                     if ($row['status'] == 1) {
-                      echo "<span class='badge text-bg-warning'>Masuk ke dapur</span>";
+                      echo "<span class='badge text-bg-info'>Masuk ke Jahit</span>";
                     } elseif ($row['status'] == 2) {
-                      echo "<span class='badge text-bg-primary'>Siap saji</span>";
+                      echo "<span class='badge text-bg-warning'>Selesai</span>";
                     }
                     ?>
-
                   </td>
                   <td>
                     <?php echo $row['catatan'] ?>
@@ -429,11 +434,109 @@ $select_desain = mysqli_query($conn, "SELECT id, nama_desain FROM tb_katalog");
       <div>
         <button class="<?php echo (!empty($row['id_bayar'])) ? " btn btn-secondary disabled" : "btn btn-success"; ?>"
           data-bs-toggle="modal" data-bs-target="#tambahItem"><i class="bi bi-plus-circle-fill"></i> Item</button>
-        <button class="<?php echo (!empty($row['id_bayar'])) ? " btn btn-secondary disabled" : "btn btn-primary"; ?>"
+        <button class="<?php echo (!empty($row['id_bayar'])) ? " btn btn-secondary disabled" : "btn btn-warning"; ?>"
           data-bs-toggle="modal" data-bs-target="#bayar"><i class="bi bi-cash-coin"></i>
           Bayar</button>
-
+        <button onclick="printStruk()" class="btn btn-info"> Cetak Struk</button>
       </div>
     </div>
   </div>
 </div>
+
+<div id="strukContent" class="d-none">
+  <style>
+    #struk {
+      font-family: "Arial", sans-serif;
+      font-size: 12px;
+      max-width: 100%;
+      border : 1px solid #ccc;
+      padding : 10px;
+      widht : 80mm;
+    }
+    #struk h2{
+      text-align :center;
+      color :goldenrod;
+    }
+    #struk p{
+      margin : 5px 0;
+    }
+    #struk table{
+      font-size: 17px;
+      border-collapse: collapse;
+      margin-top : 10px;
+      widht: 100%
+    }
+    #struk th, #struk td{
+    border : 1px solid #ddd;
+    padding: 8px;
+    text-align : left;
+    }
+    #struk .total{
+      font-weight: bold;
+    }
+  </style>
+  <div id="struk">
+    <h2>Struk Pembayaran My Taylor</h2>
+    <p>Kode Order:
+      <?php echo $kode ?>
+    </p>
+    <p>Pelanggan:
+      <?php echo $pelanggan ?>
+    </p>
+    <p>waktu Order:
+      <?php echo date('d/m/Y/ H:i:s', strtotime($result[0]['waktu_order'])) ?>
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Desain</th>
+          <th>Harga</th>
+          <th>Qty</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        $total = 0;
+        foreach ($result as $row) { ?>
+          <tr>
+            <td>
+              <?php echo $row['nama_desain'] ?>
+            </td>
+            <td>
+              <?php echo number_format($row['harga'], 0, ',', '.') ?>
+            </td>
+            <td>
+              <?php echo $row['jumlah'] ?>
+            </td>
+            <td>
+              <?php echo number_format($row['harganya'], 0, ',', '.') ?>
+            </td>
+          </tr>
+          <?php
+          $total = $row['harganya'];
+        } ?>
+        <tr class="total">
+          <td colspan="3">Total Harga</td>
+          <td>
+            <?php echo number_format($total, 0, ',', '.') ?>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  function printStruk() {
+    var strukContent = document.getElementById("strukContent").innerHTML;
+
+    var printFrame = document.createElement("iframe");
+    printFrame.style.display = 'none';
+    document.body.appendChild(printFrame);
+    printFrame.contentDocument.write(strukContent);
+    printFrame.contentWindow.print();
+    document.body.removeChild(printFrame);
+  }
+</script>

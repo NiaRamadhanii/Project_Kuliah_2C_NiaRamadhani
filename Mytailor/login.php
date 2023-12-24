@@ -63,7 +63,7 @@ if (!empty($_SESSION["username_mytaylor"])){
                 </label>
             </div>
             <button class="btn btn-warning w-100 py-2" type="submit" name="submit_validate" value="abc">Login</button>
-            <p class="mt-5 mb-3 text-body-secondary">&copy; 2023 </p> <label>admin@gmail.com 
+            <p class="mt-5 mb-3 text-body-secondary">&copy; <?php echo date("Y") ?></p> <label>admin@gmail.com 
                     password</label>
         </form>
     </main>

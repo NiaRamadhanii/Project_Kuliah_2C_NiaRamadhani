@@ -1,7 +1,7 @@
 <?php
 include "proses/connect.php";
 date_default_timezone_set('Asia/Jakarta');
-$query = mysqli_query($conn, "SELECT tb_pesanan.*,nama, SUM(harga*jumlah) AS harganya FROM tb_pesanan
+$query = mysqli_query($conn, "SELECT tb_pesanan.*, tb_bayar.*, nama, SUM(harga*jumlah) AS harganya FROM tb_pesanan
  LEFT JOIN tb_user ON tb_user.id = tb_pesanan.pelayan
  LEFT JOIN tb_list_order ON tb_list_order.kode_order=tb_pesanan.id_order
  LEFT JOIN tb_katalog ON tb_katalog.id = tb_list_order.desain
@@ -172,8 +172,8 @@ while ($record = mysqli_fetch_array($query)) {
           <?php
         }
         ?>
-        <div class="table-responsive">
-          <table class="table table-hover">
+        <div class="table-responsive mt-2">
+          <table class="table table-hover" id="example">
             <thead>
               <tr class="text-nowrap">
                 <th scope="col">No</th>

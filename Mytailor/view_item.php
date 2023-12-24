@@ -5,7 +5,7 @@ include "proses/connect.php";
 $query = mysqli_query($conn, "SELECT *, SUM(harga*jumlah) AS harganya FROM tb_list_order
 LEFT JOIN tb_pesanan ON tb_pesanan.id_order=tb_list_order.kode_order
 LEFT JOIN tb_katalog ON tb_katalog.id = tb_list_order.desain
-LEFT JOIN tb_bayar ON tb_bayar.id_bayar = tb_pesana.id_order
+LEFT JOIN tb_bayar ON tb_bayar.id_bayar = tb_pesanan.id_order
 GROUP BY id_list_order
 HAVING tb_list_order.kode_order = $_GET[order]");
 
@@ -23,7 +23,7 @@ $select_menu = mysqli_query($conn, "SELECT id,nama_desain FROM tb_katalog");
             Halaman View Item
         </div>
         <div class="card-body">
-            <a href="report" class="btn btn-info mb-3"><i class="bi bi-arrow-left"></i></a>
+            <a href="laporan" class="btn btn-info mb-3"><i class="bi bi-arrow-left"></i></a>
             <div class="row">
                 <div class="col-lg-3">
                     <div class="form-floating mb-3">
@@ -68,7 +68,7 @@ $select_menu = mysqli_query($conn, "SELECT id,nama_desain FROM tb_katalog");
                                 ?>
                                 <tr>
                                     <td>
-                                        <?php echo $row['nama_menu'] ?>
+                                        <?php echo $row['nama_desain'] ?>
                                     </td>
                                     <td>
                                         <?php echo number_format($row['harga'], 0, ',', '.') ?>
@@ -80,9 +80,9 @@ $select_menu = mysqli_query($conn, "SELECT id,nama_desain FROM tb_katalog");
                                     <td>
                                         <?php
                                         if ($row['status'] == 1) {
-                                            echo "<span class='badge text-bg-warning'>Masuk ke dapur</span>";
+                                            echo "<span class='badge text-bg-info'>Masuk ke Jahit</span>";
                                         } elseif ($row['status'] == 2) {
-                                            echo "<span class='badge text-bg-primary'>Siap saji</span>";
+                                            echo "<span class='badge text-bg-warning'>Selesai</span>";
                                         }
                                         ?>
 

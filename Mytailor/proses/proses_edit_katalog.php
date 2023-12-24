@@ -3,7 +3,7 @@ include "connect.php";
 $id = (isset($_POST['id'])) ? htmlentities($_POST['id']) : " ";
 $nama_desain = (isset($_POST['nama_desain'])) ? htmlentities($_POST['nama_desain']) : " ";
 $keterangan = (isset($_POST['keterangan'])) ? htmlentities($_POST['keterangan']) : " ";
-$kategori_katalog = (isset($_POST['kategori'])) ? htmlentities($_POST['kategori']) : " ";
+$kategori_katalog = (isset($_POST['kategori_katalog'])) ? htmlentities($_POST['kategori_katalog']) : " ";
 
 
 $kode_rand = rand(10000, 99999) . "-";

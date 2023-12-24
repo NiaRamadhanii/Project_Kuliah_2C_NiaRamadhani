@@ -1,7 +1,9 @@
-<style>.nav-link.active {
-background-color: #F4A460 !important;
-color: white !important;
-}</style>
+<style>
+  .nav-link.active {
+    background-color: #F4A460 !important;
+    color: white !important;
+  }
+</style>
 <div class="col-lg-3">
   <nav class="navbar navbar-expand-lg bg-body-tertiary rounded border mt-2">
     <div class="container-fluid">
@@ -22,6 +24,7 @@ color: white !important;
                 aria-current="page" href="home"><i class="bi bi-house-door"></i>
                 Dashboard</a>
             </li>
+            <?php if ($hasil['level'] == 1 || $hasil['level'] == 2 || $hasil['level'] == 3 || $hasil['level'] == 4) { ?>
             <li class="nav-item">
               <a class="nav-link ps-2 <?php echo ((isset($_GET['x']) && $_GET['x'] == 'katalog') || !isset($_GET['x'])) ? 'active link-light' : 'link-dark'; ?>"
                 href="katalog"><i class="bi bi-person-standing-dress"></i> Katalog</a>
@@ -30,20 +33,31 @@ color: white !important;
               <a class="nav-link ps-2 <?php echo ((isset($_GET['x']) && $_GET['x'] == 'katdesain') || !isset($_GET['x'])) ? 'active link-light' : 'link-dark'; ?>"
                 href="katdesain"><i class="bi bi-tags"></i> Kategori Desain</a>
             </li>
+            <?php } ?>
+            <?php if ($hasil['level'] == 1 || $hasil['level'] == 2 || $hasil['level'] == 3) { ?>
             <li class="nav-item">
               <a class="nav-link  ps-2 <?php echo ((isset($_GET['x']) && $_GET['x'] == 'pesanan') || !isset($_GET['x'])) ? 'active link-light' : 'link-dark'; ?>"
                 href="pesanan"><i class="bi bi-cart4"></i> Pesanan</a>
             </li>
-            <?php if ($hasil['level'] == 1) { ?>
+            <?php } ?>
+            <?php if ($hasil['level'] == 1 || $hasil['level'] == 2) { ?>
+              <li class="nav-item">
+                <a class="nav-link  ps-2 <?php echo ((isset($_GET['x']) && $_GET['x'] == 'jahit') || !isset($_GET['x'])) ? 'active link-light' : 'link-dark'; ?>"
+                  href="jahit"><i class="bi bi-scissors"></i> Jahit</a>
+              </li>
+              <?php } ?>
+              <?php if ($hasil['level'] == 1) { ?>
               <li class="nav-item">
                 <a class="nav-link ps-2 <?php echo ((isset($_GET['x']) && $_GET['x'] == 'user') || !isset($_GET['x'])) ? 'active link-light' : 'link-dark'; ?>"
                   href="user"><i class="bi bi-receipt-cutoff"></i> User</a>
               </li>
+              <?php } ?>
+              <?php if ($hasil['level'] == 1 || $hasil['level'] == 4) { ?>
               <li class="nav-item">
                 <a class="nav-link ps-2 <?php echo ((isset($_GET['x']) && $_GET['x'] == 'laporan') || !isset($_GET['x'])) ? 'active link-light' : 'link-dark'; ?>"
                   href="laporan"><i class="bi bi-journals"></i> Laporan</a>
               </li>
-            <?php } ?>
+              <?php } ?>
           </ul>
         </div>
       </div>
