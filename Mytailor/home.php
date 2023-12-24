@@ -9,7 +9,7 @@
                 dolor sit amet consectetur adipisicing elit. Minus explicabo dolorem cupiditate illum minima laudantium
                 harum doloremque eaque natus praesentium! Temporibus praesentium id neque quae quod ipsam, aspernatur
                 minima explicabo!</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="#" class="btn btn-warning">Go somewhere</a>
         </div>
     </div>
 </div>

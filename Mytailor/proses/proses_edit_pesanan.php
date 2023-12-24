@@ -2,17 +2,16 @@
 session_start();
 include "connect.php";
 $kode_order = (isset($_POST['kode_order'])) ? htmlentities($_POST['kode_order']) : "";
-$meja = (isset($_POST['meja'])) ? htmlentities($_POST['meja']) : "";
 $pelanggan = (isset($_POST['pelanggan'])) ? htmlentities($_POST['pelanggan']) : "";
 
-if (!empty($_POST['edit_order_validate'])) {
-        $query = mysqli_query($conn, "UPDATE tb_order SET meja='$meja',pelanggan='$pelanggan' WHERE id_order ='$kode_order'");
+if (!empty($_POST['edit_pesanan_validate'])) {
+        $query = mysqli_query($conn, "UPDATE tb_pesanan SET pelanggan='$pelanggan' WHERE id_order ='$kode_order'");
         if ($query) {
             $message = '<script>alert("username berhasil dimasukkan");
-        window.location="../order"</script>';
+        window.location="../pesanan"</script>';
         } else {
             $message = '<script>alert("data gagal dimasukkan")
-            window.location="../order"</script>';
+            window.location="../pesanaan"</script>';
         }
     
 }

@@ -19,7 +19,7 @@ while ($record = mysqli_fetch_array($query)) {
     <div class="card-body">
       <?php
       if (empty($result)) {
-        echo "Data menu makanan atau minuman tidak ada tidak ada";
+        echo "Data Laporan tidak ada";
       } else {
         foreach ($result as $row) {
           ?>

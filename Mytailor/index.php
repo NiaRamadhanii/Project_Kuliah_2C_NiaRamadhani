@@ -13,9 +13,6 @@ if (isset($_GET['x']) && $_GET['x'] == 'home') {
 } elseif (isset($_GET['x']) && $_GET['x'] == 'pesanan') {
   $page = "pesanan.php";
   include "main.php";
-} elseif (isset($_GET['x']) && $_GET['x'] == 'pelanggan') {
-  $page = "pelanggan.php";
-  include "main.php";
 } elseif (isset($_GET['x']) && $_GET['x'] == 'user') {
   //if ($_SESSION['level_mytaylor'] == 1) {
   //   $page = "laporan.php";
@@ -38,6 +35,9 @@ if (isset($_GET['x']) && $_GET['x'] == 'home') {
   include "proses/proses_logout.php";
 } elseif (isset($_GET['x']) && $_GET['x'] == 'katdesain') {
   $page = "katdesain.php";
+  include "main.php";
+} elseif (isset($_GET['x']) && $_GET['x'] == 'orderitem') {
+  $page = "order_item.php";
   include "main.php";
 } else {
   $page = "home.php";

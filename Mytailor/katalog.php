@@ -17,7 +17,7 @@ while ($record = mysqli_fetch_array($query)) {
         <div class="card-body">
             <div class="row">
                 <div class="col d-flex justify-content-end">
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalTambahUser">Tambah Desain</button>
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#ModalTambahUser">Tambah Desain</button>
                 </div>
             </div>
 
@@ -78,6 +78,15 @@ while ($record = mysqli_fetch_array($query)) {
                                     </div>
                                     </div>
                                 </div>
+                                <div class="col-lg-4">
+                                                <div class="form-floating mb-3">
+                                                    <input type="number" class="form-control" id="floatingInput" placeholder="Harga" name="harga" required value="<?php echo $row['harga'] ?>">
+                                                    <label for="floatingInput">Harga</label>
+                                                    <div class="invalid-feedback">
+                                                        Masukkan Harga.
+                                                    </div>
+                                                </div>
+                                            </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary" name="input_katalog_validate" value="12345">Save changes</button>
@@ -147,6 +156,15 @@ while ($record = mysqli_fetch_array($query)) {
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-lg-4">
+                                                <div class="form-floating mb-3">
+                                                    <input disabled type="number" class="form-control" id="floatingInput" placeholder="Harga" name="harga" required value="<?php echo $row['harga'] ?>">
+                                                    <label for="floatingInput">Harga</label>
+                                                    <div class="invalid-feedback">
+                                                        Masukkan Harga.
+                                                    </div>
+                                                </div>
+                                            </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                             <button type="submit" class="btn btn-primary" name="input_katalog_validate" value="12345">Save changes</button>
@@ -220,6 +238,15 @@ while ($record = mysqli_fetch_array($query)) {
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-lg-4">
+                                                <div class="form-floating mb-3">
+                                                    <input type="number" class="form-control" id="floatingInput" placeholder="Harga" name="harga" required value="<?php echo $row['harga'] ?>">
+                                                    <label for="floatingInput">Harga</label>
+                                                    <div class="invalid-feedback">
+                                                        Masukkan Harga.
+                                                    </div>
+                                                </div>
+                                            </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                             <button type="submit" class="btn btn-primary" name="edit_katalog_validate" value="12345">Save changes</button>
@@ -270,6 +297,7 @@ while ($record = mysqli_fetch_array($query)) {
                                 <th scope="col">Keterangan</th>
                                 <th scope="col">Jenis</th>
                                 <th scope="col">Kategori</th>
+                                <th scope="col">Harga</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -291,6 +319,7 @@ while ($record = mysqli_fetch_array($query)) {
                                     <td><?php echo $row['keterangan'] ?></td>
                                     <td><?php echo ($row['jenis_katalog'] == 1) ? "Gamis" : "Atasan"  ?></td>
                                     <td><?php echo $row['kategori_katalog'] ?></td>
+                                    <td><?php echo number_format ($row['harga']) ?></td>
                                     <td>
                                         <div class="d-flex">
                                             <button class="btn btn-info btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalView<?php echo $row['id'] ?>"><i class="bi bi-eye"></i></button>

@@ -36,10 +36,6 @@ color: white !important;
             </li>
             <?php if ($hasil['level'] == 1) { ?>
               <li class="nav-item">
-                <a class="nav-link ps-2 <?php echo ((isset($_GET['x']) && $_GET['x'] == 'pelanggan') || !isset($_GET['x'])) ? 'active link-light' : 'link-dark'; ?>"
-                  href="pelanggan"><i class="bi bi-receipt-cutoff"></i> Pelanggan</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link ps-2 <?php echo ((isset($_GET['x']) && $_GET['x'] == 'user') || !isset($_GET['x'])) ? 'active link-light' : 'link-dark'; ?>"
                   href="user"><i class="bi bi-receipt-cutoff"></i> User</a>
               </li>

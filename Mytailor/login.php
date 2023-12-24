@@ -62,7 +62,7 @@ if (!empty($_SESSION["username_mytaylor"])){
                     Remember me
                 </label>
             </div>
-            <button class="btn btn-primary w-100 py-2" type="submit" name="submit_validate" value="abc">Login</button>
+            <button class="btn btn-warning w-100 py-2" type="submit" name="submit_validate" value="abc">Login</button>
             <p class="mt-5 mb-3 text-body-secondary">&copy; 2023 </p> <label>admin@gmail.com 
                     password</label>
         </form>

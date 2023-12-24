@@ -11,10 +11,10 @@ if (!empty($_POST['delete_order_validate'])) {
 
       $query = mysqli_query($conn, "DELETE FROM tb_order WHERE id_order='$kode_order'");
       if ($query) {
-         $message = '<script>alert("data berhasil dihapus");
+         $message = '<script>alert("Data berhasil dihapus");
         window.location="../order";</script>';
       } else {
-         $message = '<script>alert("data gagal dihapus")
+         $message = '<script>alert("Data gagal dihapus")
       window.location="../order";</script>';
       }
    }

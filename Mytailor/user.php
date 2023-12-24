@@ -13,7 +13,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col d-flex justify-content-end">
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalTambahUser">Tambah User</button>
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#ModalTambahUser">Tambah User</button>
                 </div>
             </div>
             <!-- Modal Tambah User Baru-->
@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary" name="input_user_validate" value="12345">Save changes</button>
+                                    <button type="submit" class="btn btn-warning" name="input_user_validate" value="12345">Save changes</button>
                                 </div>
                             </form>
                         </div>
@@ -235,7 +235,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary" name="input_user_validate" value="12345">Save changes</button>
+                                        <button type="submit" class="btn btn-warning" name="input_user_validate" value="12345">Save changes</button>
                                     </div>
                                 </form>
                             </div>
